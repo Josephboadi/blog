@@ -35,6 +35,8 @@
               {% if request.user.is_authenticated %}
               <li class="nav-item"><a href="{% url 'post-create' %}" class="nav-link ">Create</a>
               </li>
+              <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link ">Logout</a>
+              </li>
               {% else %}
               <li class="nav-item"><a href="{% url 'account_login' %}" class="nav-link ">Login / Signup</a>
               </li>
