@@ -1,0 +1,4 @@
+env
+.env
+static
+static_in_env
