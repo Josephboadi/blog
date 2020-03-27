@@ -15,7 +15,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['http://joy-django-blog.herokuapp.com/']
+ALLOWED_HOSTS = ['http://joy-django-blog.herokuapp.com/', '127.0.0.1']
 # ALLOWED_HOSTS = ['127.0.0.1']
 
 
@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'crispy_forms',
+
+    'filebrowser',
 
     'tinymce',
 
@@ -138,9 +140,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 #Tinymce
@@ -171,6 +177,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+FILEBROWSER_DIRECTORY=""
 
 MAILCHIMP_API_KEY = config('MAILCHIMP_API_KEY')
 MAILCHIMP_DATA_CENTER = config('MAILCHIMP_DATA_CENTER')

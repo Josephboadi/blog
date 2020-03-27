@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from filebrowser.sites import site
 
 from posts.views import index, blog, post, search, post_create, post_update, post_delete 
 from marketing.views import email_list_signup
@@ -9,6 +10,8 @@ from marketing.views import email_list_signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('admin/', include(admin.site.urls)),
+    path('admin/filebrowser/', site.urls),
     path('', index),
     path('blog/', blog, name='post-list'),
     path('search/', search, name='search'),
